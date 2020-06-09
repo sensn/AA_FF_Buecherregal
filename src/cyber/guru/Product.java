@@ -1,5 +1,5 @@
 package cyber.guru;
-
+//https://www.baeldung.com/java-8-streams
 import java.util.Iterator;
 
 public class Product implements Iterable {
@@ -18,6 +18,7 @@ public class Product implements Iterable {
         this.name = name;
         Price = price;
     }
+
 
     @Override
     public Iterator iterator() {

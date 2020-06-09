@@ -1,18 +1,19 @@
 package cyber.guru;
 
 import org.junit.jupiter.api.*;
+//https://www.baeldung.com/java-sorting-arrays
 
 import javax.sound.midi.Soundbank;
 import java.io.IOException;
 import java.sql.SQLOutput;
 import java.time.LocalDate;
 import java.util.*;
-import java.util.function.Consumer;
-import java.util.function.IntConsumer;
-import java.util.function.Predicate;
-import java.util.function.Supplier;
+import java.util.function.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+import static java.util.stream.Collectors.counting;
+import static java.util.stream.Collectors.groupingBy;
 
 enum DaysOfWeekEnum {
     SUNDAY,
@@ -162,6 +163,8 @@ public class Main {
         String listToString = productList.stream().map(Product::getName)
                 .collect(Collectors.joining(", ", "[", "]"));
 
+        System.out.println("List to String:  " + listToString );
+
         //Processing the average value of all numeric elements of the stream:
         double averagePrice = productList.stream()
                 .collect(Collectors.averagingInt(Product::getPrice));
@@ -169,7 +172,7 @@ public class Main {
         int summingPrice = productList.stream()
                 .collect(Collectors.summingInt(Product::getPrice));
 
-        System.out.println(listToString);
+       // System.out.println(listToString);
 
         //Collecting statistical information about stream’s elements:
         IntSummaryStatistics statistics = productList.stream()
@@ -178,7 +181,7 @@ public class Main {
 
      //   Grouping of stream’s elements according to the specified function:
         Map<Integer, List<Product>> collectorMapOfLists = productList.stream()
-                .collect(Collectors.groupingBy(Product::getPrice));
+                .collect(groupingBy(Product::getPrice));
 
 
         for (Map.Entry<Integer, List<Product>> entry : collectorMapOfLists.entrySet()) {
@@ -193,7 +196,15 @@ public class Main {
      //   collectorMapOfLists.forEach((k, v) -> {i[0] += k + k;System.out.println(i[0])});
 
        // System.out.println(collectorMapOfLists);
+        String[] arr = new String[]{"c" ,"b" ,"a", ",", ";"};
+        long count = Arrays.stream(arr).distinct().count();
+        System.out.println(count);
+
+        Map<String, Long> collect =
+                Arrays.stream(arr).filter(e -> e != "," && e != ";").collect(groupingBy(Function.identity(), counting()));
+        System.out.println(collect);
     }
+
     public static void printPBook(Bookshelf shelf, Predicate<Book> predicate) {
         for (Book book : shelf) {
             if (predicate.test(book)) {
