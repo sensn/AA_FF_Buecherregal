@@ -61,5 +61,11 @@ public class Book implements Comparable{
         return ((Integer.parseInt(this.getISBN()) < Integer.parseInt(book.getISBN())) ? -1: (Integer.parseInt(this.getISBN())> Integer.parseInt(book.getISBN())) ? 1:0 );
 
         //Read more: https://javarevisited.blogspot.com/2011/11/how-to-override-compareto-method-in.html#ixzz6GN8aPXxq
+//
+//        HashSet uses equals to check duplicates while TreeSet uses compareTo to check duplicates.
+//        That's why its suggested to keep compareTo consistent with equals method in java.
+
+
+
     }
 }

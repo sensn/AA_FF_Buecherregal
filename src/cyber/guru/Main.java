@@ -4,16 +4,19 @@ import org.junit.jupiter.api.*;
 //https://www.baeldung.com/java-sorting-arrays
 
 import javax.sound.midi.Soundbank;
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.sql.SQLOutput;
 import java.time.LocalDate;
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static java.util.stream.Collectors.counting;
-import static java.util.stream.Collectors.groupingBy;
+import static java.util.stream.Collectors.*;
 
 enum DaysOfWeekEnum {
     SUNDAY,
@@ -192,18 +195,101 @@ public class Main {
             }
             System.out.println(entry.getKey() + "/" + entry.getValue());
         }
-        final long[] i = {0};
-     //   collectorMapOfLists.forEach((k, v) -> {i[0] += k + k;System.out.println(i[0])});
+       /* final long[] i = {0};
+        collectorMapOfLists.forEach((k, v) -> {i[0] += k + k;System.out.println(i[0]);});
+        System.out.println(collectorMapOfLists);*/
 
-       // System.out.println(collectorMapOfLists);
         String[] arr = new String[]{"c" ,"b" ,"a", ",", ";"};
-        long count = Arrays.stream(arr).distinct().count();
+        long count = Arrays.stream(arr).distinct().count();            //anzahl der vorkommenden zeichen.
         System.out.println(count);
 
-        Map<String, Long> collect =
+        Map<String, Long> collect =                                   // Zeichen Zählen
                 Arrays.stream(arr).filter(e -> e != "," && e != ";").collect(groupingBy(Function.identity(), counting()));
         System.out.println(collect);
+
+        //String fileName = "p://moby10b.txt";
+       // String fileName = "moby10b.txt";
+      String fileName = "./res/moby10b.txt";
+       // String fileName = "src/myres/moby10b.txt";
+File myfile = new File("moby10b.txt");
+        Map<String, Long> collect1 =
+                Files.lines(Paths.get(fileName))
+                .flatMap(line -> Arrays.stream(line.trim().split("[ ';,.!?\r\n]")))
+                .map(word -> word.replaceAll("[^a-zA-Z]", "").toLowerCase().trim())
+                .filter(word -> !word.isEmpty())
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+
+        // sort by keys, a,b,c..., and return a new LinkedHashMap
+        // toMap() will returns HashMap by default, we need LinkedHashMap to keep the order.
+        Map<String, Long> result = collect1.entrySet().stream()
+                .sorted(Map.Entry.comparingByKey())
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
+                        (oldValue, newValue) -> oldValue, LinkedHashMap::new));
+
+        Map<String, Long> result1 = collect1.entrySet().stream()
+                .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
+                        (oldValue, newValue) -> oldValue, LinkedHashMap::new));
+
+        long count1 = result1.values().stream().distinct()
+                     .count();
+        long count2 = result1.keySet().stream().distinct()
+                     .count();            //anzahl der vorkommenden zeichen.
+
+        List<Long> result4 = result1.values().stream()
+                .sorted(Comparator.reverseOrder())
+                .collect(Collectors.toList()
+
+                );
+
+        List<String> result5 = result1.keySet().stream()
+                .sorted(Comparator.reverseOrder())
+                .collect(Collectors.toList());
+
+        System.out.println(collect1);
+        System.out.println("----");
+        System.out.println(result);
+        System.out.println("----");
+        System.out.println(result1);
+        System.out.println(count1);
+        System.out.println(count2);
+        System.out.println("--Sorted List--");
+        System.out.println(result4);
+        System.out.println(result5);
+
+        List<String> collect11 =
+                Files.lines(Paths.get(fileName))
+                        .flatMap(line -> Arrays.stream(line.trim().split("[ ';,.!?\r\n]")))
+                        .map(word -> word.replaceAll("[^a-zA-Z]", "").toLowerCase().trim())
+                        .filter(word -> !word.isEmpty())
+                        .limit(10)
+                        .collect(Collectors.toList());
+
+        long count11 = collect11.stream()
+                .count();
+        System.out.println("-----");
+        System.out.print(collect11);
+
+        System.out.println(count11);
+
+        /*Integer x=0;
+        for (String word : result5) {
+            System.out.println(x.toString() + word);
+            x++;
+        }*/
+
+//        AtomicInteger counter = new AtomicInteger(0);                   // Counter in Lambda erhöhen
+//        result5.stream().forEach((c) -> {System.out.println(counter.getAndIncrement() + " " +c);});
+
+
     }
+
+public int foo(int x){
+
+    System.out.println(x);
+    x++;
+    return x;
+}
 
     public static void printPBook(Bookshelf shelf, Predicate<Book> predicate) {
         for (Book book : shelf) {
