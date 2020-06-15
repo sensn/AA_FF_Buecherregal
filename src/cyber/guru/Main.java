@@ -271,6 +271,7 @@ File myfile = new File("moby10b.txt");
         System.out.print(collect11);
 
         System.out.println(count11);
+//        System.out.println(count11);
 
         /*Integer x=0;
         for (String word : result5) {
