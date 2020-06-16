@@ -1,22 +1,31 @@
 package cyber.guru;
 
-import org.junit.jupiter.api.*;
-//https://www.baeldung.com/java-sorting-arrays
-
-import javax.sound.midi.Soundbank;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.sql.SQLOutput;
 import java.time.LocalDate;
 import java.util.*;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static java.util.stream.Collectors.*;
+import static com.google.common.truth.Truth.assertThat;
+import static com.google.common.truth.Truth.assertWithMessage;
+// for assertions on Java 8 types (Streams and java.util.Optional)
+import static com.google.common.truth.Truth8.assertThat;
+import static java.util.stream.Collectors.counting;
+import static java.util.stream.Collectors.groupingBy;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.equalToIgnoringCase;
+
+
+// entry point for all assertThat methods and utility methods (e.g. entry)
+//https://www.baeldung.com/java-sorting-arrays
+
+
+
 
 enum DaysOfWeekEnum {
     SUNDAY,
@@ -143,6 +152,11 @@ public class Main {
 
         // Iterate over enum
 
+
+
+        //.collect(Collectors.to)
+                       // Gesamtsumme
+
         for (DaysOfWeekEnum day : DaysOfWeekEnum.values()) {
             System.out.println(day);
         }
@@ -231,6 +245,18 @@ File myfile = new File("moby10b.txt");
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
                         (oldValue, newValue) -> oldValue, LinkedHashMap::new));
 
+        Map<String, Long> result1f = collect1.entrySet().stream()
+                .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
+                .filter(c -> c.getValue()>4000)
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
+                        (oldValue, newValue) -> oldValue, LinkedHashMap::new));
+
+        System.out.println(result1f);
+        System.out.println("--*--");
+
+
+
+
         long count1 = result1.values().stream().distinct()
                      .count();
         long count2 = result1.keySet().stream().distinct()
@@ -239,7 +265,6 @@ File myfile = new File("moby10b.txt");
         List<Long> result4 = result1.values().stream()
                 .sorted(Comparator.reverseOrder())
                 .collect(Collectors.toList()
-
                 );
 
         List<String> result5 = result1.keySet().stream()
@@ -271,6 +296,8 @@ File myfile = new File("moby10b.txt");
         System.out.print(collect11);
 
         System.out.println(count11);
+
+
 //        System.out.println(count11);
 
         /*Integer x=0;
@@ -282,8 +309,68 @@ File myfile = new File("moby10b.txt");
 //        AtomicInteger counter = new AtomicInteger(0);                   // Counter in Lambda erhöhen
 //        result5.stream().forEach((c) -> {System.out.println(counter.getAndIncrement() + " " +c);});
 
+        List<Integer> prices = Arrays.asList(10, 20, 30, 40, 50, 60, 70);
+        double pricesf = prices.stream()
+                .filter(price -> price >= 42)      // Filter
+                .mapToDouble(price -> price * 0.9)// interne Iteration
+                // Rabatt
+                .sum();
+
+        System.out.println( pricesf );                    // Gesamtsumme
+        System.out.println( "---STREAM---" );
+
+        //_____reduce()__________
+        List<String> letters = Arrays.asList("a", "b", "c", "d", "e");
+        String resultstr = letters
+                .stream()
+                .reduce("", (partialString, element) -> partialString + element);
+        String resultstr1 = letters.stream().reduce("", String::concat);
+        //assertThat(result).isEqualTo("abcde");
+        String resultstrU = letters
+                .stream()
+                .reduce("", (partialString, element) -> partialString.toUpperCase() + element.toUpperCase());
+
+      //----Exceptions
+
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6);
+      assertThat("huhu",divideListElements(numbers, 1),equalTo(21));
+        System.out.println("Equal 21");
+        assertThat("huhu",divideListElements(numbers, 1),equalTo(21));
+        String a = "foo";
+        String b = "FOO";
+        assertThat(a, equalToIgnoringCase(b));
+        System.out.println("Equal Case");
+       numbers = Arrays.asList(0, 1, 2, 3, 4, 5, 6);
+        assertThat(divideListElements(numbers, 1),equalTo(21));
+        System.out.println("Equal Case0");
+       // assertThat(divideListElements(numbers, 0),equalTo(21));
+        System.out.println("Equal Case00");
+        Integer m=65;
+        assertThat (m,equalTo(65));
+        assertThat(m).isEqualTo(65);                  //google truth.dev
+    //    assertThat(frodo.getName()).isEqualTo("Frodo");
+
+        String string = "awesome";
+        assertThat(string).startsWith("awe");
+        assertWithMessage("Without me, it's just awso").that(string).contains("me");
+
+
 
     }
+    public static int divideListElements(List<Integer> values, int divider) {
+        return values.stream().reduce(0, (a, b) -> divide(a, divider) + divide(b, divider));
+    }
+
+    private static int divide(int value, int factor) {
+        int result = 0;
+        try {
+            result = value / factor;
+        } catch (ArithmeticException e) {
+            System.out.println(  "Arithmetic Exception: Division by Zero");
+        }
+        return result;
+    }
+
 
 public int foo(int x){
 
