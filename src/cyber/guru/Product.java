@@ -19,6 +19,14 @@ public class Product implements Iterable {
         Price = price;
     }
 
+    public static String analyseString(String sentence){
+        String[] wordsInMessage = sentence.split("//s");
+return null;
+    }
+    public static String analyseString1(String sentence){
+        String[] wordsInMessage = sentence.split("//s");
+        return "123";
+    }
 
     @Override
     public Iterator iterator() {

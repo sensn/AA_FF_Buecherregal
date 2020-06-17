@@ -1,0 +1,518 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: Main</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">cyber.guru</a> ]
+</div>
+
+<h1>Coverage Summary for Class: Main (cyber.guru)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Main</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 13)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 180)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">Main$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 2)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">Main$2</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 3)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 17)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 185)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package cyber.guru;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import java.io.File;
+<i>4</i>&nbsp;import java.io.IOException;
+<i>5</i>&nbsp;import java.nio.file.Files;
+<i>6</i>&nbsp;import java.nio.file.Paths;
+<i>7</i>&nbsp;import java.time.LocalDate;
+<i>8</i>&nbsp;import java.util.*;
+<i>9</i>&nbsp;import java.util.function.*;
+<i>10</i>&nbsp;import java.util.stream.Collectors;
+<i>11</i>&nbsp;import java.util.stream.Stream;
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import static com.google.common.truth.Truth.assertThat;
+<i>14</i>&nbsp;import static com.google.common.truth.Truth.assertWithMessage;
+<i>15</i>&nbsp;// for assertions on Java 8 types (Streams and java.util.Optional)
+<i>16</i>&nbsp;import static com.google.common.truth.Truth8.assertThat;
+<i>17</i>&nbsp;import static java.util.stream.Collectors.counting;
+<i>18</i>&nbsp;import static java.util.stream.Collectors.groupingBy;
+<i>19</i>&nbsp;import static org.hamcrest.MatcherAssert.assertThat;
+<i>20</i>&nbsp;import static org.hamcrest.Matchers.equalTo;
+<i>21</i>&nbsp;import static org.hamcrest.Matchers.equalToIgnoringCase;
+<i>22</i>&nbsp;
+<i>23</i>&nbsp;
+<i>24</i>&nbsp;// entry point for all assertThat methods and utility methods (e.g. entry)
+<i>25</i>&nbsp;//https://www.baeldung.com/java-sorting-arrays
+<i>26</i>&nbsp;
+<i>27</i>&nbsp;
+<i>28</i>&nbsp;
+<i>29</i>&nbsp;
+<i>30</i>&nbsp;enum DaysOfWeekEnum {
+<i>31</i>&nbsp;    SUNDAY,
+<i>32</i>&nbsp;    MONDAY,
+<i>33</i>&nbsp;    TUESDAY,
+<i>34</i>&nbsp;    WEDNESDAY,
+<i>35</i>&nbsp;    THURSDAY,
+<i>36</i>&nbsp;    FRIDAY,
+<i>37</i>&nbsp;    SATURDAY
+<i>38</i>&nbsp;}
+<i>39</i>&nbsp;
+<b class="nc"><i>40</i>&nbsp;public class Main {</b>
+<i>41</i>&nbsp;
+<i>42</i>&nbsp;
+<i>43</i>&nbsp;
+<i>44</i>&nbsp;
+<i>45</i>&nbsp;    public static void main(String[] args) throws IOException {
+<i>46</i>&nbsp;        // write your code here
+<b class="nc"><i>47</i>&nbsp;        Main main=new Main();</b>
+<b class="nc"><i>48</i>&nbsp;        main.run   ();</b>
+<b class="nc"><i>49</i>&nbsp;    }</b>
+<i>50</i>&nbsp;
+<i>51</i>&nbsp;    public void run() throws IOException {
+<b class="nc"><i>52</i>&nbsp;        Consumer&lt;String&gt; pressanykey = (anystring) -&gt; {</b>
+<b class="nc"><i>53</i>&nbsp;            System.out.println(anystring);</b>
+<b class="nc"><i>54</i>&nbsp;            Scanner scanner = new Scanner(System.in);</b>
+<b class="nc"><i>55</i>&nbsp;            String str4 = scanner.nextLine();</b>
+<b class="nc"><i>56</i>&nbsp;        };</b>
+<b class="nc"><i>57</i>&nbsp;        IntConsumer myIntConsumer = (anyint) -&gt; {</b>
+<b class="nc"><i>58</i>&nbsp;            System.out.println(anyint);</b>
+<b class="nc"><i>59</i>&nbsp;        };</b>
+<b class="nc"><i>60</i>&nbsp;        myIntConsumer.accept(55);</b>
+<i>61</i>&nbsp;
+<b class="nc"><i>62</i>&nbsp;        Bibliothek bibliothek = new Bibliothek();</b>
+<b class="nc"><i>63</i>&nbsp;        bibliothek.addBookshelf(new Bookshelf());</b>
+<i>64</i>&nbsp;
+<i>65</i>&nbsp;
+<b class="nc"><i>66</i>&nbsp;        for (int i = 0; i &lt; bibliothek.thebookshelfs.get(0).books.length; i++) {</b>
+<b class="nc"><i>67</i>&nbsp;            for (int j = 0; j &lt; bibliothek.thebookshelfs.get(0).books[i].length; j++) {</b>
+<i>68</i>&nbsp;                //  bibliothek.thebookshelfs.get(0).addbooks(new Book(),i,j);
+<b class="nc"><i>69</i>&nbsp;                bibliothek.thebookshelfs.get(0).addbooks(new Book(String.valueOf(i * 16 + j)), i, j);</b>
+<i>70</i>&nbsp;                //bibliothek.thebookshelfs.get(0).addBookToList(new Book(Character.toString((char)(i*16 +j))));
+<b class="nc"><i>71</i>&nbsp;                bibliothek.thebookshelfs.get(0).addBookToList(new Book(String.valueOf(i * 16 + j)));</b>
+<i>72</i>&nbsp;            }
+<i>73</i>&nbsp;        }
+<i>74</i>&nbsp;        //Arrays.sort(bibliothek.thebookshelfs.get(0).books);  //Geht Anita
+<i>75</i>&nbsp;
+<i>76</i>&nbsp;        //  Arrays.sort(bibliothek.thebookshelfs.get(0).books,  (a, b) -&gt; Integer.parseInt(b[0].getISBN()) - Integer.parseInt(a[0].getISBN()));
+<i>77</i>&nbsp;        //  Arrays.sort(bibliothek.thebookshelfs.get(0).books,  (a, b) -&gt; Integer.parseInt(b[0].getISBN()) - Integer.parseInt(a[0].getISBN()));
+<i>78</i>&nbsp;
+<b class="nc"><i>79</i>&nbsp;        Arrays.sort(bibliothek.thebookshelfs.get(0).books, new java.util.Comparator&lt;Book[]&gt;() {</b>
+<i>80</i>&nbsp;            public int compare(Book[] a, Book[] b) {
+<b class="nc"><i>81</i>&nbsp;                return (Integer.parseInt(a[0].getISBN()) &gt; Integer.parseInt(b[0].getISBN()) ? -1 : (Integer.parseInt(a[0].getISBN()) &lt; Integer.parseInt(b[0].getISBN()) ? 1 : 0));   //reversed per row</b>
+<i>82</i>&nbsp;                // return (a[0].compareTo(b[0]));
+<i>83</i>&nbsp;            }
+<i>84</i>&nbsp;        });
+<i>85</i>&nbsp;
+<i>86</i>&nbsp;
+<b class="nc"><i>87</i>&nbsp;        Bookshelf shelf = bibliothek.thebookshelfs.get(0);</b>
+<b class="nc"><i>88</i>&nbsp;        for (Book book : shelf) {</b>
+<b class="nc"><i>89</i>&nbsp;            System.out.println(book);</b>
+<i>90</i>&nbsp;
+<b class="nc"><i>91</i>&nbsp;        }</b>
+<i>92</i>&nbsp;
+<i>93</i>&nbsp;
+<b class="nc"><i>94</i>&nbsp;        pressanykey.accept(&quot;Press Return to proceed...&quot;);</b>
+<b class="nc"><i>95</i>&nbsp;        printPBook(shelf, book -&gt; book.pubDate.isBefore(LocalDate.of(1999, 1, 1)));</b>
+<i>96</i>&nbsp;        // bibliothek.thebookshelfs.get(0).books.
+<i>97</i>&nbsp;
+<i>98</i>&nbsp;
+<b class="nc"><i>99</i>&nbsp;        Comparator&lt;Book&gt; comparator = (h1, h2) -&gt; (Integer.parseInt(h1.getISBN()) &gt; Integer.parseInt(h2.getISBN()) ? 1 : (Integer.parseInt(h1.getISBN()) &lt; Integer.parseInt(h2.getISBN()) ? -1 : 0));</b>
+<i>100</i>&nbsp;        //Comparator&lt;Book&gt; comparator = (h1,h2) -&gt; h1.getISBN().compareTo(h2.getISBN());
+<i>101</i>&nbsp;
+<b class="nc"><i>102</i>&nbsp;        bibliothek.thebookshelfs.get(0).thebookslist.sort(comparator);                      //Comparator</b>
+<i>103</i>&nbsp;        //  bibliothek.thebookshelfs.get(0).thebookslist.sort(Comparator.comparing(Book::getISBN));                      //Comparator
+<i>104</i>&nbsp;        //   bibliothek.thebookshelfs.get(0).thebookslist.sort(comparator.reversed());
+<i>105</i>&nbsp;        //  Collections.sort(bibliothek.thebookshelfs.get(0).thebookslist, Comparator.comparing(Book::getISBN));
+<i>106</i>&nbsp;        //  bibliothek.thebookshelfs.get(0).thebookslist.sort(Comparator.comparing(Book::getISBN).thenComparing(Book::getTitle) );
+<i>107</i>&nbsp;
+<i>108</i>&nbsp;
+<i>109</i>&nbsp;        // bibliothek.thebookshelfs.get(0).thebookslist.sort(
+<i>110</i>&nbsp;        //           (Book h1, Book h2) -&gt; h1.getISBN().compareTo(h2.getISBN()));
+<i>111</i>&nbsp;
+<i>112</i>&nbsp;
+<b class="nc"><i>113</i>&nbsp;        for (Book book : shelf.thebookslist) {                             //Comparator print sorted list</b>
+<b class="nc"><i>114</i>&nbsp;            System.out.println(book);</b>
+<b class="nc"><i>115</i>&nbsp;        }</b>
+<i>116</i>&nbsp;
+<i>117</i>&nbsp;        //  int x=  System.in.read();
+<i>118</i>&nbsp;
+<i>119</i>&nbsp;        //   bibliothek.thebookshelfs.get(0).thebookslist.forEach((Book book) -&gt; System.out.println(&quot;Consumer BOOK: &quot;+ book.getTitle()));     //Consumer
+<i>120</i>&nbsp;
+<i>121</i>&nbsp;
+<b class="nc"><i>122</i>&nbsp;        pressanykey.accept(&quot;Press Return to proceed...&quot;);</b>
+<b class="nc"><i>123</i>&nbsp;        System.out.println(&quot;HUHUHU&quot;);</b>
+<i>124</i>&nbsp;
+<i>125</i>&nbsp;// Passing a Runnable when creating a new thread
+<b class="nc"><i>126</i>&nbsp;        Thread thread2 = new Thread(new Runnable() {</b>
+<i>127</i>&nbsp;            @Override
+<i>128</i>&nbsp;            public void run() {
+<b class="nc"><i>129</i>&nbsp;                System.out.println(Thread.currentThread().getName() + &quot; is running&quot;);</b>
+<b class="nc"><i>130</i>&nbsp;            }</b>
+<i>131</i>&nbsp;        });
+<b class="nc"><i>132</i>&nbsp;        thread2.start();</b>
+<i>133</i>&nbsp;
+<i>134</i>&nbsp;        // Lambda Runnable
+<b class="nc"><i>135</i>&nbsp;        Runnable task1 = () -&gt; {</b>
+<b class="nc"><i>136</i>&nbsp;            System.out.printf(Thread.currentThread().getName() + &quot; is running Task1&quot;);</b>
+<b class="nc"><i>137</i>&nbsp;        };</b>
+<b class="nc"><i>138</i>&nbsp;        new Thread(task1).start();</b>
+<i>139</i>&nbsp;
+<i>140</i>&nbsp;        //SUPPLIER
+<i>141</i>&nbsp;        // This function returns a random value.
+<i>142</i>&nbsp;
+<i>143</i>&nbsp;
+<b class="nc"><i>144</i>&nbsp;        Random wuerfel = new Random();</b>
+<i>145</i>&nbsp;
+<b class="nc"><i>146</i>&nbsp;        Supplier&lt;Integer&gt; randomValue1 = () -&gt; wuerfel.nextInt(9);</b>
+<b class="nc"><i>147</i>&nbsp;        Supplier&lt;Double&gt; randomValue = () -&gt; Math.random() * 10;</b>
+<i>148</i>&nbsp;
+<i>149</i>&nbsp;        // Print the random value using get()
+<b class="nc"><i>150</i>&nbsp;        System.out.println(randomValue.get());</b>
+<b class="nc"><i>151</i>&nbsp;        System.out.println(randomValue1.get());</b>
+<i>152</i>&nbsp;
+<i>153</i>&nbsp;        // Iterate over enum
+<i>154</i>&nbsp;
+<i>155</i>&nbsp;
+<i>156</i>&nbsp;
+<i>157</i>&nbsp;        //.collect(Collectors.to)
+<i>158</i>&nbsp;                       // Gesamtsumme
+<i>159</i>&nbsp;
+<b class="nc"><i>160</i>&nbsp;        for (DaysOfWeekEnum day : DaysOfWeekEnum.values()) {</b>
+<b class="nc"><i>161</i>&nbsp;            System.out.println(day);</b>
+<i>162</i>&nbsp;        }
+<i>163</i>&nbsp;
+<i>164</i>&nbsp;        //We can also use java.util.Stream. So that we can perform operations on the Enum values.
+<i>165</i>&nbsp;        //
+<i>166</i>&nbsp;        //To create a Stream we have two options, one using Stream.of:
+<b class="nc"><i>167</i>&nbsp;        Stream.of(DaysOfWeekEnum.values());</b>
+<i>168</i>&nbsp;        //
+<i>169</i>&nbsp;        //  7.2. The collect() Method
+<i>170</i>&nbsp;
+<b class="nc"><i>171</i>&nbsp;        List&lt;Product&gt; productList = Arrays.asList(new Product(23, &quot;potatoes&quot;),</b>
+<i>172</i>&nbsp;                new Product(14, &quot;orange&quot;), new Product(13, &quot;lemon&quot;),
+<i>173</i>&nbsp;                new Product(23, &quot;bread&quot;), new Product(13, &quot;sugar&quot;));
+<i>174</i>&nbsp;
+<i>175</i>&nbsp;      //  Converting a stream to the Collection (Collection, List or Set):
+<b class="nc"><i>176</i>&nbsp;        List&lt;String&gt; collectorCollection =</b>
+<b class="nc"><i>177</i>&nbsp;                productList.stream().map(Product::getName).collect(Collectors.toList());</b>
+<i>178</i>&nbsp;
+<i>179</i>&nbsp;        //Reducing to String:
+<b class="nc"><i>180</i>&nbsp;        String listToString = productList.stream().map(Product::getName)</b>
+<b class="nc"><i>181</i>&nbsp;                .collect(Collectors.joining(&quot;, &quot;, &quot;[&quot;, &quot;]&quot;));</b>
+<i>182</i>&nbsp;
+<b class="nc"><i>183</i>&nbsp;        System.out.println(&quot;List to String:  &quot; + listToString );</b>
+<i>184</i>&nbsp;
+<i>185</i>&nbsp;        //Processing the average value of all numeric elements of the stream:
+<b class="nc"><i>186</i>&nbsp;        double averagePrice = productList.stream()</b>
+<b class="nc"><i>187</i>&nbsp;                .collect(Collectors.averagingInt(Product::getPrice));</b>
+<i>188</i>&nbsp;
+<b class="nc"><i>189</i>&nbsp;        int summingPrice = productList.stream()</b>
+<b class="nc"><i>190</i>&nbsp;                .collect(Collectors.summingInt(Product::getPrice));</b>
+<i>191</i>&nbsp;
+<i>192</i>&nbsp;       // System.out.println(listToString);
+<i>193</i>&nbsp;
+<i>194</i>&nbsp;        //Collecting statistical information about stream’s elements:
+<b class="nc"><i>195</i>&nbsp;        IntSummaryStatistics statistics = productList.stream()</b>
+<b class="nc"><i>196</i>&nbsp;                .collect(Collectors.summarizingInt(Product::getPrice));</b>
+<b class="nc"><i>197</i>&nbsp;        System.out.println(statistics);</b>
+<i>198</i>&nbsp;
+<i>199</i>&nbsp;     //   Grouping of stream’s elements according to the specified function:
+<b class="nc"><i>200</i>&nbsp;        Map&lt;Integer, List&lt;Product&gt;&gt; collectorMapOfLists = productList.stream()</b>
+<b class="nc"><i>201</i>&nbsp;                .collect(groupingBy(Product::getPrice));</b>
+<i>202</i>&nbsp;
+<i>203</i>&nbsp;
+<b class="nc"><i>204</i>&nbsp;        for (Map.Entry&lt;Integer, List&lt;Product&gt;&gt; entry : collectorMapOfLists.entrySet()) {</b>
+<b class="nc"><i>205</i>&nbsp;            List&lt;Product&gt; my = entry.getValue();</b>
+<b class="nc"><i>206</i>&nbsp;            for (Product prod:my</b>
+<i>207</i>&nbsp;                 ) {
+<b class="nc"><i>208</i>&nbsp;                System.out.println(prod.getName());</b>
+<b class="nc"><i>209</i>&nbsp;            }</b>
+<b class="nc"><i>210</i>&nbsp;            System.out.println(entry.getKey() + &quot;/&quot; + entry.getValue());</b>
+<b class="nc"><i>211</i>&nbsp;        }</b>
+<i>212</i>&nbsp;       /* final long[] i = {0};
+<i>213</i>&nbsp;        collectorMapOfLists.forEach((k, v) -&gt; {i[0] += k + k;System.out.println(i[0]);});
+<i>214</i>&nbsp;        System.out.println(collectorMapOfLists);*/
+<i>215</i>&nbsp;
+<b class="nc"><i>216</i>&nbsp;        String[] arr = new String[]{&quot;c&quot; ,&quot;b&quot; ,&quot;a&quot;, &quot;,&quot;, &quot;;&quot;};</b>
+<b class="nc"><i>217</i>&nbsp;        long count = Arrays.stream(arr).distinct().count();            //anzahl der vorkommenden zeichen.</b>
+<b class="nc"><i>218</i>&nbsp;        System.out.println(count);</b>
+<i>219</i>&nbsp;
+<b class="nc"><i>220</i>&nbsp;        Map&lt;String, Long&gt; collect =                                   // Zeichen Zählen</b>
+<b class="nc"><i>221</i>&nbsp;                Arrays.stream(arr).filter(e -&gt; e != &quot;,&quot; &amp;&amp; e != &quot;;&quot;).collect(groupingBy(Function.identity(), counting()));</b>
+<b class="nc"><i>222</i>&nbsp;        System.out.println(collect);</b>
+<i>223</i>&nbsp;
+<i>224</i>&nbsp;        //String fileName = &quot;p://moby10b.txt&quot;;
+<i>225</i>&nbsp;       // String fileName = &quot;moby10b.txt&quot;;
+<b class="nc"><i>226</i>&nbsp;      String fileName = &quot;./res/moby10b.txt&quot;;</b>
+<i>227</i>&nbsp;       // String fileName = &quot;src/myres/moby10b.txt&quot;;
+<b class="nc"><i>228</i>&nbsp;File myfile = new File(&quot;moby10b.txt&quot;);</b>
+<b class="nc"><i>229</i>&nbsp;        Map&lt;String, Long&gt; collect1 =</b>
+<b class="nc"><i>230</i>&nbsp;                Files.lines(Paths.get(fileName))</b>
+<b class="nc"><i>231</i>&nbsp;                .flatMap(line -&gt; Arrays.stream(line.trim().split(&quot;[ &#39;;,.!?\r\n]&quot;)))</b>
+<b class="nc"><i>232</i>&nbsp;                .map(word -&gt; word.replaceAll(&quot;[^a-zA-Z]&quot;, &quot;&quot;).toLowerCase().trim())</b>
+<b class="nc"><i>233</i>&nbsp;                .filter(word -&gt; !word.isEmpty())</b>
+<b class="nc"><i>234</i>&nbsp;                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));</b>
+<i>235</i>&nbsp;
+<i>236</i>&nbsp;        // sort by keys, a,b,c..., and return a new LinkedHashMap
+<i>237</i>&nbsp;        // toMap() will returns HashMap by default, we need LinkedHashMap to keep the order.
+<b class="nc"><i>238</i>&nbsp;        Map&lt;String, Long&gt; result = collect1.entrySet().stream()</b>
+<b class="nc"><i>239</i>&nbsp;                .sorted(Map.Entry.comparingByKey())</b>
+<b class="nc"><i>240</i>&nbsp;                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,</b>
+<b class="nc"><i>241</i>&nbsp;                        (oldValue, newValue) -&gt; oldValue, LinkedHashMap::new));</b>
+<i>242</i>&nbsp;
+<b class="nc"><i>243</i>&nbsp;        Map&lt;String, Long&gt; result1 = collect1.entrySet().stream()</b>
+<b class="nc"><i>244</i>&nbsp;                .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))</b>
+<b class="nc"><i>245</i>&nbsp;                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,</b>
+<b class="nc"><i>246</i>&nbsp;                        (oldValue, newValue) -&gt; oldValue, LinkedHashMap::new));</b>
+<i>247</i>&nbsp;
+<b class="nc"><i>248</i>&nbsp;        Map&lt;String, Long&gt; result1f = collect1.entrySet().stream()</b>
+<b class="nc"><i>249</i>&nbsp;                .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))</b>
+<b class="nc"><i>250</i>&nbsp;                .filter(c -&gt; c.getValue()&gt;4000)</b>
+<b class="nc"><i>251</i>&nbsp;                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,</b>
+<b class="nc"><i>252</i>&nbsp;                        (oldValue, newValue) -&gt; oldValue, LinkedHashMap::new));</b>
+<i>253</i>&nbsp;
+<b class="nc"><i>254</i>&nbsp;        System.out.println(result1f);</b>
+<b class="nc"><i>255</i>&nbsp;        System.out.println(&quot;--*--&quot;);</b>
+<i>256</i>&nbsp;
+<i>257</i>&nbsp;
+<i>258</i>&nbsp;
+<i>259</i>&nbsp;
+<b class="nc"><i>260</i>&nbsp;        long count1 = result1.values().stream().distinct()</b>
+<b class="nc"><i>261</i>&nbsp;                     .count();</b>
+<b class="nc"><i>262</i>&nbsp;        long count2 = result1.keySet().stream().distinct()</b>
+<b class="nc"><i>263</i>&nbsp;                     .count();            //anzahl der vorkommenden zeichen.</b>
+<i>264</i>&nbsp;
+<b class="nc"><i>265</i>&nbsp;        List&lt;Long&gt; result4 = result1.values().stream()</b>
+<b class="nc"><i>266</i>&nbsp;                .sorted(Comparator.reverseOrder())</b>
+<b class="nc"><i>267</i>&nbsp;                .collect(Collectors.toList()</b>
+<i>268</i>&nbsp;                );
+<i>269</i>&nbsp;
+<b class="nc"><i>270</i>&nbsp;        List&lt;String&gt; result5 = result1.keySet().stream()</b>
+<b class="nc"><i>271</i>&nbsp;                .sorted(Comparator.reverseOrder())</b>
+<b class="nc"><i>272</i>&nbsp;                .collect(Collectors.toList());</b>
+<i>273</i>&nbsp;
+<b class="nc"><i>274</i>&nbsp;        System.out.println(collect1);</b>
+<b class="nc"><i>275</i>&nbsp;        System.out.println(&quot;----&quot;);</b>
+<b class="nc"><i>276</i>&nbsp;        System.out.println(result);</b>
+<b class="nc"><i>277</i>&nbsp;        System.out.println(&quot;----&quot;);</b>
+<b class="nc"><i>278</i>&nbsp;        System.out.println(result1);</b>
+<b class="nc"><i>279</i>&nbsp;        System.out.println(count1);</b>
+<b class="nc"><i>280</i>&nbsp;        System.out.println(count2);</b>
+<b class="nc"><i>281</i>&nbsp;        System.out.println(&quot;--Sorted List--&quot;);</b>
+<b class="nc"><i>282</i>&nbsp;        System.out.println(result4);</b>
+<b class="nc"><i>283</i>&nbsp;        System.out.println(result5);</b>
+<i>284</i>&nbsp;
+<b class="nc"><i>285</i>&nbsp;        List&lt;String&gt; collect11 =</b>
+<b class="nc"><i>286</i>&nbsp;                Files.lines(Paths.get(fileName))</b>
+<b class="nc"><i>287</i>&nbsp;                        .flatMap(line -&gt; Arrays.stream(line.trim().split(&quot;[ &#39;;,.!?\r\n]&quot;)))</b>
+<b class="nc"><i>288</i>&nbsp;                        .map(word -&gt; word.replaceAll(&quot;[^a-zA-Z]&quot;, &quot;&quot;).toLowerCase().trim())</b>
+<b class="nc"><i>289</i>&nbsp;                        .filter(word -&gt; !word.isEmpty())</b>
+<b class="nc"><i>290</i>&nbsp;                        .limit(10)</b>
+<b class="nc"><i>291</i>&nbsp;                        .collect(Collectors.toList());</b>
+<i>292</i>&nbsp;
+<b class="nc"><i>293</i>&nbsp;        long count11 = collect11.stream()</b>
+<b class="nc"><i>294</i>&nbsp;                .count();</b>
+<b class="nc"><i>295</i>&nbsp;        System.out.println(&quot;-----&quot;);</b>
+<b class="nc"><i>296</i>&nbsp;        System.out.print(collect11);</b>
+<i>297</i>&nbsp;
+<b class="nc"><i>298</i>&nbsp;        System.out.println(count11);</b>
+<i>299</i>&nbsp;
+<i>300</i>&nbsp;
+<i>301</i>&nbsp;//        System.out.println(count11);
+<i>302</i>&nbsp;
+<i>303</i>&nbsp;        /*Integer x=0;
+<i>304</i>&nbsp;        for (String word : result5) {
+<i>305</i>&nbsp;            System.out.println(x.toString() + word);
+<i>306</i>&nbsp;            x++;
+<i>307</i>&nbsp;        }*/
+<i>308</i>&nbsp;
+<i>309</i>&nbsp;//        AtomicInteger counter = new AtomicInteger(0);                   // Counter in Lambda erhöhen
+<i>310</i>&nbsp;//        result5.stream().forEach((c) -&gt; {System.out.println(counter.getAndIncrement() + &quot; &quot; +c);});
+<i>311</i>&nbsp;
+<b class="nc"><i>312</i>&nbsp;        List&lt;Integer&gt; prices = Arrays.asList(10, 20, 30, 40, 50, 60, 70);</b>
+<b class="nc"><i>313</i>&nbsp;        double pricesf = prices.stream()</b>
+<b class="nc"><i>314</i>&nbsp;                .filter(price -&gt; price &gt;= 42)      // Filter</b>
+<b class="nc"><i>315</i>&nbsp;                .mapToDouble(price -&gt; price * 0.9)// interne Iteration</b>
+<i>316</i>&nbsp;                // Rabatt
+<b class="nc"><i>317</i>&nbsp;                .sum();</b>
+<i>318</i>&nbsp;
+<b class="nc"><i>319</i>&nbsp;        System.out.println( pricesf );                    // Gesamtsumme</b>
+<b class="nc"><i>320</i>&nbsp;        System.out.println( &quot;---STREAM---&quot; );</b>
+<i>321</i>&nbsp;
+<i>322</i>&nbsp;        //_____reduce()__________
+<b class="nc"><i>323</i>&nbsp;        List&lt;String&gt; letters = Arrays.asList(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;);</b>
+<b class="nc"><i>324</i>&nbsp;        String resultstr = letters</b>
+<b class="nc"><i>325</i>&nbsp;                .stream()</b>
+<b class="nc"><i>326</i>&nbsp;                .reduce(&quot;&quot;, (partialString, element) -&gt; partialString + element);</b>
+<b class="nc"><i>327</i>&nbsp;        String resultstr1 = letters.stream().reduce(&quot;&quot;, String::concat);</b>
+<i>328</i>&nbsp;        //assertThat(result).isEqualTo(&quot;abcde&quot;);
+<b class="nc"><i>329</i>&nbsp;        String resultstrU = letters</b>
+<b class="nc"><i>330</i>&nbsp;                .stream()</b>
+<b class="nc"><i>331</i>&nbsp;                .reduce(&quot;&quot;, (partialString, element) -&gt; partialString.toUpperCase() + element.toUpperCase());</b>
+<i>332</i>&nbsp;
+<i>333</i>&nbsp;      //----Exceptions
+<i>334</i>&nbsp;
+<b class="nc"><i>335</i>&nbsp;        List&lt;Integer&gt; numbers = Arrays.asList(1, 2, 3, 4, 5, 6);</b>
+<b class="nc"><i>336</i>&nbsp;      assertThat(&quot;huhu&quot;,divideListElements(numbers, 1),equalTo(21));</b>
+<b class="nc"><i>337</i>&nbsp;        System.out.println(&quot;Equal 21&quot;);</b>
+<b class="nc"><i>338</i>&nbsp;        assertThat(&quot;huhu&quot;,divideListElements(numbers, 1),equalTo(21));</b>
+<b class="nc"><i>339</i>&nbsp;        String a = &quot;foo&quot;;</b>
+<b class="nc"><i>340</i>&nbsp;        String b = &quot;FOO&quot;;</b>
+<b class="nc"><i>341</i>&nbsp;        assertThat(a, equalToIgnoringCase(b));</b>
+<b class="nc"><i>342</i>&nbsp;        System.out.println(&quot;Equal Case&quot;);</b>
+<b class="nc"><i>343</i>&nbsp;       numbers = Arrays.asList(0, 1, 2, 3, 4, 5, 6);</b>
+<b class="nc"><i>344</i>&nbsp;        assertThat(divideListElements(numbers, 1),equalTo(21));</b>
+<b class="nc"><i>345</i>&nbsp;        System.out.println(&quot;Equal Case0&quot;);</b>
+<i>346</i>&nbsp;       // assertThat(divideListElements(numbers, 0),equalTo(21));
+<b class="nc"><i>347</i>&nbsp;        System.out.println(&quot;Equal Case00&quot;);</b>
+<b class="nc"><i>348</i>&nbsp;        Integer m=65;</b>
+<b class="nc"><i>349</i>&nbsp;        assertThat (m,equalTo(65));</b>
+<b class="nc"><i>350</i>&nbsp;        assertThat(m).isEqualTo(65);                  //google truth.dev</b>
+<i>351</i>&nbsp;    //    assertThat(frodo.getName()).isEqualTo(&quot;Frodo&quot;);
+<i>352</i>&nbsp;
+<b class="nc"><i>353</i>&nbsp;        String string = &quot;awesome&quot;;</b>
+<b class="nc"><i>354</i>&nbsp;        assertThat(string).startsWith(&quot;awe&quot;);</b>
+<b class="nc"><i>355</i>&nbsp;        assertWithMessage(&quot;Without me, it&#39;s just awso&quot;).that(string).contains(&quot;me&quot;);</b>
+<i>356</i>&nbsp;
+<i>357</i>&nbsp;
+<i>358</i>&nbsp;
+<b class="nc"><i>359</i>&nbsp;    }</b>
+<i>360</i>&nbsp;    public static int divideListElements(List&lt;Integer&gt; values, int divider) {
+<b class="nc"><i>361</i>&nbsp;        return values.stream().reduce(0, (a, b) -&gt; divide(a, divider) + divide(b, divider));</b>
+<i>362</i>&nbsp;    }
+<i>363</i>&nbsp;
+<i>364</i>&nbsp;    private static int divide(int value, int factor) {
+<b class="nc"><i>365</i>&nbsp;        int result = 0;</b>
+<i>366</i>&nbsp;        try {
+<b class="nc"><i>367</i>&nbsp;            result = value / factor;</b>
+<b class="nc"><i>368</i>&nbsp;        } catch (ArithmeticException e) {</b>
+<b class="nc"><i>369</i>&nbsp;            System.out.println(  &quot;Arithmetic Exception: Division by Zero&quot;);</b>
+<b class="nc"><i>370</i>&nbsp;        }</b>
+<b class="nc"><i>371</i>&nbsp;        return result;</b>
+<i>372</i>&nbsp;    }
+<i>373</i>&nbsp;
+<i>374</i>&nbsp;
+<i>375</i>&nbsp;public int foo(int x){
+<i>376</i>&nbsp;
+<b class="nc"><i>377</i>&nbsp;    System.out.println(x);</b>
+<b class="nc"><i>378</i>&nbsp;    x++;</b>
+<b class="nc"><i>379</i>&nbsp;    return x;</b>
+<i>380</i>&nbsp;}
+<i>381</i>&nbsp;
+<i>382</i>&nbsp;    public static void printPBook(Bookshelf shelf, Predicate&lt;Book&gt; predicate) {
+<b class="nc"><i>383</i>&nbsp;        for (Book book : shelf) {</b>
+<b class="nc"><i>384</i>&nbsp;            if (predicate.test(book)) {</b>
+<b class="nc"><i>385</i>&nbsp;                System.out.print(&quot;Before: &quot; + book + &quot; &quot;);</b>
+<i>386</i>&nbsp;            }
+<b class="nc"><i>387</i>&nbsp;        }</b>
+<b class="nc"><i>388</i>&nbsp;        System.out.println();</b>
+<b class="nc"><i>389</i>&nbsp;    }</b>
+<i>390</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-17 10:48</div>
+</div>
+</body>
+</html>
